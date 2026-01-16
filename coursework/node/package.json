@@ -1,0 +1,15 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Node.js exercise",
+  "license": "MIT",
+  "author": "Vít Wandrol",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
