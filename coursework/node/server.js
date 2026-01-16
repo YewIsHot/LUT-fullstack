@@ -80,7 +80,7 @@ async function routingHandler(req, res)
 
     if (req.url === '/')
     {
-        let file = await fs.readFile('./index.html')
+        const file = await fs.readFile('./index.html')
         res.writeHead(200, {"content-type": "text/html"});
         res.end(file);
         return;
