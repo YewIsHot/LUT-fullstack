@@ -2,11 +2,15 @@ import express from 'express'
 import process from 'process'
 import colors from 'colors'
 import dns from 'dns'
+import path from 'path'
+import { fileURLToPath } from 'url';
 import goalRouter from './routes/goalRoutes.js'
 import userRouter from './routes/userRoutes.js'
 import { errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express()
 const port = process.env.PORT
@@ -19,6 +23,18 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/goals', goalRouter)
 app.use('/api/users', userRouter)
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+  app.get(/(.*)/, (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, '../', 'frontend', 'dist', 'index.html')
+    )
+  );
+} else {
+  app.get('/', (req, res) => res.send('Please set to production'));
+}
 
 app.use(errorHandler)
 

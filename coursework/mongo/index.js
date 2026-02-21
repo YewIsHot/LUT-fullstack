@@ -8,13 +8,13 @@ dns.setServers(['8.8.8.8', '8.8.4.4']);
 
 const pipeline = [
   {
-    $match:{ runtime: {$lt: 50}, genres: {$nin: ['Short']}}
+    $match: { runtime: { $lt: 50 }, genres: { $nin: ['Short'] } }
   },
   {
-    $project:{ title: 1, runtime: 1, genres: 1}
+    $project: { title: 1, runtime: 1, genres: 1 }
   },
   {
-    $sort: {runtime: 1}
+    $sort: { runtime: 1 }
   },
   {
     $limit: 3

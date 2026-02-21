@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'html')));
 
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(logger);
 
@@ -35,7 +35,6 @@ app.use((req, res, next) => {
 
 app.use(errorHandler);
 
-app.listen(8080, () =>
-{
+app.listen(8080, () => {
     console.log('Server is running');
 });

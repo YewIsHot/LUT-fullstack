@@ -1,5 +1,4 @@
-function rand()
-{
+function rand() {
     return Math.random()
 }
 
