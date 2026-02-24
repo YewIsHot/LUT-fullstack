@@ -1,7 +1,7 @@
 # Vít Wandrol
 
 ## Project setup
-1. Run `npm i` in `./project` and `./project/frontend` folder to install project dependencies.
+1. Run `npm i` in `./project` and `./project/frontend` folders to install project dependencies.
 2. Create `./project/.env` file and add 4 values:
    1. **NODE_ENV** - \[developement/production] *developement* is recommended to use. If you use *production* the app will require compiled frontend assets,
    2. **PORT** - \[5000] Port on which the backend will run,
